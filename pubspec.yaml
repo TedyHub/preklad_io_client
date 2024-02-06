@@ -1,0 +1,24 @@
+name: preklad_io_client
+description: "Dart client for Prekla.IO API translation  service."
+version: 0.0.1
+homepage:
+
+environment:
+  sdk: '>=3.2.6 <4.0.0'
+  flutter: ">=1.17.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+  http: ^1.2.0
+  path_provider: ^2.1.2
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^2.0.0
+
+flutter:
+
+false_secrets:
+  - "/example/lib/main.dart"
