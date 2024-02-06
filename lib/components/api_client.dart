@@ -51,6 +51,10 @@ class ApiClient {
       {String? sourceLanguageCode,
       String? targetLanguageCode,
       List<String>? ignoreWords}) async {
+    if (data.isEmpty) {
+      throw "Input data should not be empty";
+    }
+
     final source = _getSourceLanguage(sourceLanguageCode);
     final target = _getTargetLanguage(targetLanguageCode);
     final ignore = ignoreWords ?? [];
@@ -71,6 +75,10 @@ class ApiClient {
   // returns translated string or original key if translation is not found
   String getTranslationForKey(String key,
       {String? sourceLanguageCode, String? targetLanguageCode}) {
+    if (key.isEmpty) {
+      throw "Key for key-value transalton pair should not be empty";
+    }
+
     final source = _getSourceLanguage(sourceLanguageCode);
     final target = _getTargetLanguage(targetLanguageCode);
 
@@ -96,6 +104,10 @@ class ApiClient {
     final source = _getSourceLanguage(sourceLanguageCode);
     final target = _getTargetLanguage(targetLanguageCode);
     final ignore = ignoreWords ?? [];
+
+    if (text.isEmpty) {
+      throw "Input text should not be empty";
+    }
 
     // check if text is already translated
     final result = _repository.getTranslationForText(text, source, target);

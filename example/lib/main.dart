@@ -53,7 +53,10 @@ class _MyHomePageState extends State<MyHomePage> {
       'button': 'Translate',
     };
 
-    ApiClient().translateData(textData).then((value) {
+    ApiClient()
+        .translateData(textData,
+            sourceLanguageCode: 'en', targetLanguageCode: 'es')
+        .then((value) {
       setState(() {
         _isInitialized = true;
       });
@@ -107,16 +110,7 @@ class _MyHomePageState extends State<MyHomePage> {
               ),
             ),
             ElevatedButton(
-              onPressed: () async {
-                final text = _textController.text;
-                final result = await text.translate(
-                  sourceLanguage: 'en',
-                  targetLanguage: 'cs',
-                );
-                setState(() {
-                  _translatedText = result;
-                });
-              },
+              onPressed: buttonClickHandler,
               child: Text(getButtonText()),
             ),
             if (_translatedText.isNotEmpty)
@@ -124,6 +118,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 padding: const EdgeInsets.all(8.0),
                 child: Text(
                   _translatedText,
+                  locale: const Locale('es', 'ES'),
                   style: Theme.of(context).textTheme.headlineSmall,
                 ),
               ),
