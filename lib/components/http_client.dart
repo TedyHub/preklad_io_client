@@ -46,7 +46,7 @@ class HttpApiClient {
       var errorResponseMap = jsonDecode(response.body) as Map<String, dynamic>;
 
       throw Exception(
-          'Failed to translate text: ErrorCode: ${errorResponseMap['errorCode']}, ErrorMessage: ${errorResponseMap['errorMessage']}');
+          'Failed to translate text: ErrorCode: ${errorResponseMap['errorCode']}, ErrorMessage: ${errorResponseMap['message']}');
     }
 
     var result = utf8.decode(response.bodyBytes);

@@ -1,6 +1,6 @@
 name: preklad_io_client
 description: "Dart client for Prekla.IO API translation  service."
-version: 0.0.2
+version: 0.0.3
 homepage: https://github.com/TedyHub/preklad_io_client
 
 environment:
